@@ -4,12 +4,10 @@ import {convertSong} from '../utils';
 import {toggleSong} from '../action-creators/player';
 
 const mapStateToProps = function(state, ownProps){
-  //console.log('ownProps:', ownProps);
-  console.log('state.songs', state.songs);
-  const filteredSongs = state.songs.filter(function(song){
-    console.log('song.genre', song.genre, 'ownProps.params.genre', ownProps.params.genreName);
-    return song.genre === ownProps.params.genreName}).map(convertSong);
-  console.log('filteredSongs:', filteredSongs);
+  const filteredSongs = state.songs
+    .filter(function(song){return song.genre === ownProps.params.genreName})
+    .map(convertSong);
+
   return {
     genreName: ownProps.params.genreName,
     songs: filteredSongs,
