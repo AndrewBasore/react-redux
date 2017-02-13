@@ -1,13 +1,17 @@
 import React from 'react';
 
-export default function (props) {
 
+export default function (props) {
+  console.log("Player is recieving props: ", props);
   const currentSong = props.currentSong;
+  const currentSongList = props.currentSongList;
   const isPlaying = props.isPlaying;
   const progress = props.progress;
   const prev = props.prev;
   const toggle = props.toggle;
   const next = props.next;
+
+
 
   return (
     <footer>
@@ -16,7 +20,7 @@ export default function (props) {
           <button className="btn btn-default" onClick={prev}>
             <span className="glyphicon glyphicon-step-backward"></span>
           </button>
-          <button className="btn btn-default" onClick={toggle}>
+          <button className="btn btn-default" onClick={() => {toggle(currentSong, currentSongList)}}>
             <span className={isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'}></span>
           </button>
           <button className="btn btn-default" onClick={next}>
