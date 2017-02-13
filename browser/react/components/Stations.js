@@ -20,7 +20,7 @@ export default function( { stations } ) {
 	        genres.map((genre, index )=> {
 	          return (
 	            <div className="list-group-item" key={index}>
-	              <Link to={'fill/me/in/later'}>{genre}</Link>
+	              <Link to={`/stations/${genre}`}>{genre}</Link>
 	            </div>
 	          );
 	        })
